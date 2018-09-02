@@ -22,7 +22,7 @@ const Layout:SFC<{}> = ({ children }) => {
         padding: 2rem;
       }
 
-      h1 {
+      h1, h2 {
         line-height: 1.2em;
         margin-top: 0;
       }
