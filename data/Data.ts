@@ -1,5 +1,6 @@
 import { parseString } from 'xml2js';
 import fetch from 'isomorphic-unfetch';
+import { convertBreaks } from './Util';
 
 export type RSS = {
   rss: {
@@ -51,6 +52,7 @@ export const getID = (item: PodcastItem) => item.link.split('/').pop();
 
 const createMap = (results: RSS, map: Map<string, PodcastItem>) => {
   results.rss.channel.item.forEach(el => {
+    el.HTMLdescription = convertBreaks(el.description);
     map.set(getID(el), el);
   })
 }

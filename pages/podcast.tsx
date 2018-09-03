@@ -23,7 +23,7 @@ export default class Podcast extends Component<{ item: PodcastItem }> {
         .split {
           display: grid;
           grid-template-columns: 200px 1fr;
-          grid-column-gap: 20px;
+          grid-column-gap: 2rem;
         }
       `}</style>
       <div className="split">
@@ -32,8 +32,8 @@ export default class Podcast extends Component<{ item: PodcastItem }> {
         </div>
         <article>
           <h1>Episode { item.title }</h1>
-          <p dangerouslySetInnerHTML={{ __html: convertBreaks(item.description) }}>
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: item.HTMLdescription }}>
+          </div>
           <p>
             <audio controls>
               <source type={item.enclosure.$.type} src={item.enclosure.$.url}/>

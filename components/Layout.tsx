@@ -26,6 +26,10 @@ const Layout:SFC<{}> = ({ children }) => {
         line-height: 1.2em;
         margin-top: 0;
       }
+
+      a {
+        text-decoration: none;
+      }
     `}</style>
     <main>
       {children}
