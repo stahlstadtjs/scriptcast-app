@@ -10,9 +10,7 @@ const Player:SFC<{ type?: string, url: string }> = ({type, url}) => {
         width: 100%;
       }
     `}</style>
-    <audio controls>
-      <source type={type} src={url}/>
-    </audio>
+    <audio controls src={url}></audio>
     </>;
   }
   return <></>;
