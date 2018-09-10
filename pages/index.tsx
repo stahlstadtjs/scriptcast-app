@@ -14,7 +14,7 @@ const PostLink = (props) =>
     <a>{props.title}</a>
   </Link>;
 
-const Item : SFC<{ item: PodcastItem, id: string}> = ({item, id}) => <>
+const Item : SFC<{ item: PodcastItem, id: string, key: string}> = ({item, id}) => <>
   <style jsx>{`
     img {
       width: 100%;
@@ -34,7 +34,6 @@ const Item : SFC<{ item: PodcastItem, id: string}> = ({item, id}) => <>
     <article>
       <h2><PostLink 
         title={item.title}
-        key={id}
         id={id}
       /></h2>
       <p>
@@ -52,11 +51,10 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
   render() {
     return <Layout>
       <h1>ScriptCast - A podcast about JavaScript</h1>
-      <Link href="/about"><a>About</a></Link>
       {
         this.props.channel.item.map(item => {
           const id = getID(item);
-          return <Item id={id} item={item}/>
+          return <Item key={id} id={id} item={item}/>
         })
       }
     </Layout>
