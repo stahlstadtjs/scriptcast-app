@@ -1,6 +1,7 @@
+const { fetchRSS } = require('./server/fetchRSS');
+
 const express = require('express');
 const next = require('next');
-const fetch = require('isomorphic-unfetch');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -10,15 +11,7 @@ app.prepare()
   .then(() => {
     const server = express();
 
-    server.get('/api', (req, res) => {
-      fetch('https://feeds.soundcloud.com/users/soundcloud:users:306408165/sounds.rss', {
-        mode: 'no-cors'
-      })
-      .then(data => data.text())
-      .then(text => {
-        res.send(text);
-      })
-    });
+    server.get('/api', fetchRSS());
 
     server.get('/podcast/:id', (req, res) => {
       const actualPage = '/podcast';
@@ -39,3 +32,4 @@ app.prepare()
     console.error(ex.stack)
     process.exit(1)
   });
+

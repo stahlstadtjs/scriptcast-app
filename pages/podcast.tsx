@@ -2,6 +2,7 @@ import React, { Component, MouseEvent } from 'react';
 import { fetchEntry, PodcastItem } from '../data/Data';
 import Layout from '../components/Layout';
 import Context from '../data/Context';
+import Head from 'next/head';
 
 const urlToHTTPS = (url) => url.replace('http://', 'https://');
 
@@ -19,6 +20,9 @@ export default class Podcast extends Component<{ item: PodcastItem }> {
   render() {
     const { item } = this.props;
     return <Layout>
+      <Head>
+        <title>ScriptCast {item.title}</title>
+      </Head>
       <style jsx>{`
         img {
           width: 100%;

@@ -7,7 +7,7 @@ export const Item: SFC<{
   item: PodcastItem;
   id: string;
   key: string;
-}> = ({ item, id }) => <>
+}> = ({ item, id }) => <div className="split">
   <style jsx>{`
     img {
       width: 100%;
@@ -20,16 +20,14 @@ export const Item: SFC<{
       margin-bottom: 2rem;
     }
   `}</style>
-  <div className="split">
-    <div className="image-container">
-      <img src={item["itunes:image"].$.href} alt="Cover image of episode" />
-    </div>
-    <article>
-      <h2><PostLink title={item.title} id={id} /></h2>
-      <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
-      <p>
-        {abstract(item.description)} [<PostLink id={id} key={id} title='...' />]
-      </p>
-    </article>
+  <div className="image-container">
+    <img src={item["itunes:image"].$.href} alt="Cover image of episode" />
   </div>
-</>;
+  <article>
+    <h2><PostLink title={item.title} id={id} /></h2>
+    <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
+    <p>
+      {abstract(item.description)} [<PostLink id={id} key={id} title='...' />]
+    </p>
+  </article>
+</div>;
