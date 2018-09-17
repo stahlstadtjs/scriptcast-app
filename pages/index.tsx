@@ -1,57 +1,7 @@
-import Link from 'next/link';
-import React, { Component, SFC } from 'react';
-import { fetchAll, PodcastChannel, getID, PodcastItem } from '../data/Data';
+import React, { Component } from 'react';
+import { fetchAll, PodcastChannel, getID } from '../data/Data';
 import Layout from '../components/Layout';
-
-const abstract = (text: string) => {
-  const parts = text.slice(0, 500).split(' ');
-  parts.pop();
-  return parts.join(' ');
-}
-
-const dateStrings = [
-  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-]
-
-const PostLink = (props) => 
-  <Link as={`/podcast/${props.id}`} href={`/podcast?id=${props.id}`}>
-    <a>{props.title}</a>
-  </Link>;
-
-const formatDate = (dateTime: string) => {
-  const date = new Date(dateTime);
-  return `${dateStrings[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
-}
-
-const Item : SFC<{ item: PodcastItem, id: string, key: string}> = ({item, id}) => <>
-  <style jsx>{`
-    img {
-      width: 100%;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      grid-column-gap: 2rem;
-      margin-bottom: 2rem;
-    }
-  `}</style>
-  <div className="split">
-    <div className="image-container">
-      <img src={item["itunes:image"].$.href} alt="Cover image of episode"/>
-    </div>
-    <article>
-      <h2><PostLink 
-        title={item.title}
-        id={id}
-      /></h2>
-      <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
-      <p>
-        { abstract(item.description) } [<PostLink id={id} key={id} title='...' />]
-      </p>
-    </article>
-  </div>
-</>;
+import { Item } from '../components/Item';
 
 export default class Index extends Component<{ channel: PodcastChannel }> {
   static async getInitialProps({ req }) {
