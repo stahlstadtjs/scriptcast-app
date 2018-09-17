@@ -9,10 +9,19 @@ const abstract = (text: string) => {
   return parts.join(' ');
 }
 
+const dateStrings = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+]
+
 const PostLink = (props) => 
   <Link as={`/podcast/${props.id}`} href={`/podcast?id=${props.id}`}>
     <a>{props.title}</a>
   </Link>;
+
+const formatDate = (dateTime: string) => {
+  const date = new Date(dateTime);
+  return `${dateStrings[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
+}
 
 const Item : SFC<{ item: PodcastItem, id: string, key: string}> = ({item, id}) => <>
   <style jsx>{`
@@ -36,6 +45,7 @@ const Item : SFC<{ item: PodcastItem, id: string, key: string}> = ({item, id}) =
         title={item.title}
         id={id}
       /></h2>
+      <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
       <p>
         { abstract(item.description) } [<PostLink id={id} key={id} title='...' />]
       </p>

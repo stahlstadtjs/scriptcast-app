@@ -1,6 +1,6 @@
 import { SFC } from 'react';
 
-const Player:SFC<{ type?: string, url: string }> = ({type, url}) => {
+const Player:SFC<{ type?: string, url: string }> = ({url}) => {
   if (url) {
     return <>
     <style jsx>{`
