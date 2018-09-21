@@ -1,4 +1,5 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Head, Main, NextScript } from 'next/document';
+import { Menu } from '../components/Menu';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,8 +10,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="en">
-        <Head></Head>
-        <body className="custom_class">
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        <body>
+          <Menu />
           <Main />
           <NextScript />
         </body>

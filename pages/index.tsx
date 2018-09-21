@@ -9,18 +9,20 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
     return fetchAll(req);
   }
 
+  getItems() {
+    return this.props.channel.item.map(item => {
+      const id = getID(item);
+      return <Item key={id} id={id} item={item}/>
+    })
+  }
+
   render() {
     return <Layout>
       <Head>
         <title>ScriptCast - A podcast about JavaScript</title>
       </Head>
       <h1>ScriptCast - A podcast about JavaScript</h1>
-      {
-        this.props.channel.item.map(item => {
-          const id = getID(item);
-          return <Item key={id} id={id} item={item}/>
-        })
-      }
+      { this.getItems() }
     </Layout>
   }
 }

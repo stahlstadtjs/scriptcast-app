@@ -48,7 +48,7 @@ const parsePromise = (xml) => new Promise<RSS>((resolve, reject) => {
   })
 });
 
-export const getID = (item: PodcastItem) => item.link.split('/').pop();
+export const getID = (item: PodcastItem) => item.link.split('/').pop().split('-').shift();
 
 const createMap = (results: RSS, map: Map<string, PodcastItem>) => {
   results.rss.channel.item.forEach(el => {

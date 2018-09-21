@@ -14,6 +14,15 @@ export default class MyApp extends App {
     return { pageProps }
   }
 
+  setAudio(url, type) {
+    this.setState({
+      data: {
+        url,
+        type
+      }
+    });
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -21,14 +30,7 @@ export default class MyApp extends App {
         url: undefined,
         type: undefined,
       },
-      setAudio: (url, type) => {
-        this.setState({
-          data: {
-            url,
-            type
-          }
-        })
-      }
+      setAudio: (url, type) => this.setAudio(url, type)
     }
   }
 

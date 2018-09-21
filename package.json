@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
+    "prod": "NODE_ENV=production node server.js",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@zeit/next-typescript": "1.1.0",
+    "compression": "^1.7.3",
     "express": "^4.16.3",
     "isomorphic-unfetch": "^2.1.1",
-    "next": "6.1.1",
+    "next": "^7.0.0",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "xml2js": "^0.4.19"
