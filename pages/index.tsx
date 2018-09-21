@@ -3,6 +3,7 @@ import { fetchAll, PodcastChannel, getID } from '../data/Data';
 import Layout from '../components/Layout';
 import { Item } from '../components/Item';
 import Head from 'next/head';
+import { Header } from '../components/Header';
 
 export default class Index extends Component<{ channel: PodcastChannel }> {
   static async getInitialProps({ req }) {
@@ -17,12 +18,15 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
   }
 
   render() {
-    return <Layout>
-      <Head>
-        <title>ScriptCast - A podcast about JavaScript</title>
-      </Head>
-      <h1>ScriptCast - A podcast about JavaScript</h1>
-      { this.getItems() }
-    </Layout>
+    return <>
+      <Header />
+      <Layout>
+        <Head>
+          <title>ScriptCast - A podcast about JavaScript</title>
+        </Head>
+        <h1 className="visually-hidden">ScriptCast - A podcast about JavaScript</h1>
+        { this.getItems() }
+      </Layout>
+    </>
   }
 }
