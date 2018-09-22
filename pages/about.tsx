@@ -1,3 +1,7 @@
 import Layout from '../components/Layout';
+import { Menu } from '../components/Menu';
 
-export default () => <Layout><div>About us</div></Layout>;
+export default () => <>
+  <Menu />
+  <Layout><div>About us</div></Layout>
+</>;
