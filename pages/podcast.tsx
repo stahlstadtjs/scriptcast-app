@@ -3,8 +3,8 @@ import { fetchEntry, PodcastItem } from '../data/Data';
 import Layout from '../components/Layout';
 import Context from '../data/Context';
 import Head from 'next/head';
+import { urlToHTTPS } from '../data/Text';
 
-const urlToHTTPS = (url) => url.replace('http://', 'https://');
 
 export default class Podcast extends Component<{ item: PodcastItem }> {
   static async getInitialProps(req) {

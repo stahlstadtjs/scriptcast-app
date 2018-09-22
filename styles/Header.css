@@ -1,11 +1,28 @@
 .masthead {
-  background-image: url(/static/assets/header-240.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   min-height: 30vw;
   max-height: 30vh;
   height: 100vh;
+  background-color: #2f2f2c;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo {
+  background-image: url(/static/assets/header-240.jpg);
+}
+
+.photo:after {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(12, 12, 12, 0.7);
+  z-index: 1;
+  content: '';
 }
 
 .wrapper {
@@ -14,32 +31,69 @@
   padding: 2rem;
   position: relative;
   height: 100%;
+  color: white;
+}
+
+.masthead-cover {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.meta {
+  position: absolute;
+  z-index: 3;
+  padding: 2rem;
+  max-width: 650px;
 }
 
 @media(min-width: 640px) {
-  .masthead {
+  .photo {
     background-image: url(/static/assets/header-640.jpg);
+  }
+
+  .masthead-cover {
+    right: 2rem;
+    width: 150px;
+    top: 50%;
+    transform: translate(0, -50%);
+    box-shadow: 0 0 5px 1px #222;
   }
 }
 
 @media(min-width: 800px) {
-  .masthead {
+  .photo {
     background-image: url(/static/assets/header-800.jpg);
+  }
+
+  .masthead-cover {
+    width: 200px;
   }
 }
 
 @media(min-width: 1024px) {
+
   .masthead {
+    height: 433px;
+    max-height: 100vh;
+    min-height: 0;
+  }
+
+  .photo {
     background-image: url(/static/assets/header-1024.jpg);
+  }
+
+  .masthead-cover {
+    width: 300px;
   }
 }
 
 .logo {
+  width: 100%;
   min-width: 300px;
   max-width: 500px;
-  width: 100%;
-  position: absolute; 
-  right: 2rem;
-  top: 50%;
-  transform: translate(0, -50%);
+  margin-left: -5.6rem;
+  margin-bottom: 1.5rem;
 }

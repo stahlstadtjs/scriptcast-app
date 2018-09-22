@@ -12,3 +12,5 @@ export const formatDate = (dateTime: string) => {
   const date = new Date(dateTime);
   return `${dateStrings[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 };
+
+export const urlToHTTPS = (url) => url.replace('http://', 'https://');

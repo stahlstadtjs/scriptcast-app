@@ -19,12 +19,12 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
 
   render() {
     return <>
-      <Header />
+      <h1 className="visually-hidden">ScriptCast - A podcast about JavaScript</h1>
+      <Header episode={this.props.channel.item[0]}/>
       <Layout>
         <Head>
           <title>ScriptCast - A podcast about JavaScript</title>
         </Head>
-        <h1 className="visually-hidden">ScriptCast - A podcast about JavaScript</h1>
         { this.getItems() }
       </Layout>
     </>

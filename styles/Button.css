@@ -1,0 +1,18 @@
+.btn {
+  background-color: #f7df1e;
+  color: #2f2f2c;
+  display: inline-block;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 3px solid #f7df1e;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+  line-height: 1.1em;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: #f7df1e;
+}
