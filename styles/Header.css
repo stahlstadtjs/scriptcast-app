@@ -53,12 +53,12 @@
   .meta {
     position: absolute;
     z-index: 3;
-    padding: 0 2rem 2rem;
+    padding: 0 2rem 2rem 0;
     max-width: 650px;
   }
   
   .logo {
-    margin-left: -5.6rem;
+    margin-left: -4.6rem;
   }
 
   .masthead-cover {
@@ -86,7 +86,6 @@
 
   .meta {
     padding: 2rem;
-    margin-left: 3rem;
   }
 }
 
@@ -96,6 +95,10 @@
     height: 433px;
     max-height: 100vh;
     min-height: 0;
+  }
+
+  .logo {
+    margin-left: -5.6rem;
   }
 
   .photo {

@@ -16,8 +16,7 @@ export const Item: SFC<{
     </div>
     <article>
       <p className="time">
-        ScriptCast <strong>{number}</strong> | 
-        <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
+        ScriptCast <strong>{number}</strong> | <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
       </p>
       <h2><PostLink title={trunkatedTitle} id={id} /></h2>
       <p>
