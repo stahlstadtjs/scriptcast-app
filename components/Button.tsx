@@ -4,10 +4,10 @@ import '../styles/Button.css';
 
 export const Button:SFC<{ 
   url? : string,
-  onClick?: () => any
+  onClick?: (e?: any) => any
 }> = ({ url, onClick, children }) => {
   if (url) {
-    return <a className="btn" href={url}>{children}</a>
+    return <a onClick={onClick} className="btn" href={url}>{children}</a>
   }
   return <button onClick={onClick} className="btn">{children}</button>
 }

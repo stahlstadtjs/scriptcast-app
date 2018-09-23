@@ -5,6 +5,7 @@ import Context from '../data/Context';
 import Head from 'next/head';
 import { urlToHTTPS } from '../data/Text';
 import { Menu } from '../components/Menu';
+import { Header } from '../components/Header';
 
 
 export default class Podcast extends Component<{ item: PodcastItem }> {
@@ -21,36 +22,16 @@ export default class Podcast extends Component<{ item: PodcastItem }> {
   render() {
     const { item } = this.props;
     return <>
-      <Menu />        
+      <Head>
+        <title>ScriptCast {item.title}</title>
+      </Head>
+      <Menu />    
+      <Header episode={item}/>    
       <Layout>
-        <Head>
-          <title>ScriptCast {item.title}</title>
-        </Head>
-          <Context.Consumer>
-          {({ setAudio }) => (
-            <div className="split">
-              <style jsx>{`
-                img {
-                  width: 100%;
-                }
-
-                .split {
-                  display: grid;
-                  grid-template-columns: 200px 1fr;
-                  grid-column-gap: 2rem;
-                }
-              `}</style>
-              <div className="image">
-                <img src={urlToHTTPS(item["itunes:image"].$.href)} alt="Cover image"/>
-              </div>
-              <article>
-                <h1>Episode { item.title }</h1>
-                <div dangerouslySetInnerHTML={{ __html: item.HTMLdescription }}>
-                </div>
-                <button onClick={() => setAudio(item.enclosure.$.url, item.enclosure.$.type)}>Play</button>
-              </article>
-            </div>)}
-        </Context.Consumer>
+        <article className="article">
+          <div dangerouslySetInnerHTML={{ __html: item.HTMLdescription }}>
+          </div>
+        </article>
       </Layout>
     </>
   }

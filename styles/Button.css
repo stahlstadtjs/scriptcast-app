@@ -10,9 +10,21 @@
   cursor: pointer;
   margin-right: 1rem;
   line-height: 1.1em;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f7c41e;
+  border-color: #f7c41e;
+  color: #2f2f2f;
 }
 
 .btn.secondary {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   color: #f7df1e;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f7c41e;
 }

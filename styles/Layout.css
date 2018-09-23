@@ -24,6 +24,12 @@ h1, h2 {
 
 a {
   text-decoration: none;
+  color: #3f5cb8;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #513fb8;
 }
 
 .visually-hidden {
@@ -32,4 +38,10 @@ a {
   clip: rect(0 0 0 0); 
   height: 1px; width: 1px; 
   margin: -1px; padding: 0; border: 0; 
+}
+
+@media(min-width: 800px) {
+  .article {
+    margin-left: 2rem;
+  }
 }

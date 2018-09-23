@@ -12,7 +12,7 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
   }
 
   getItems() {
-    return this.props.channel.item.map(item => {
+    return this.props.channel.item.slice(1).map(item => {
       const id = getID(item);
       return <Item key={id} id={id} item={item}/>
     })
@@ -22,7 +22,7 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
     return <>
       <Menu />        
       <h1 className="visually-hidden">ScriptCast - A podcast about JavaScript</h1>
-      <Header episode={this.props.channel.item[0]}/>
+      <Header latest={true} episode={this.props.channel.item[0]}/>
       <Layout>
         <Head>
           <title>ScriptCast - A podcast about JavaScript</title>

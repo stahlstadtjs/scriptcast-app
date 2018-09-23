@@ -1,5 +1,5 @@
 export const abstract = (text: string) => {
-  const parts = text.slice(0, 500).split(' ');
+  const parts = text.slice(0, 120).split(' ');
   parts.pop();
   return parts.join(' ');
 };
@@ -14,3 +14,11 @@ export const formatDate = (dateTime: string) => {
 };
 
 export const urlToHTTPS = (url) => url.replace('http://', 'https://');
+
+export const splitTitle = (title: string) => {
+  const matches = title.match(/(#\d*) - (.*)/);
+  return {
+    number: matches[1],
+    trunkatedTitle: matches[2]
+  }
+}
