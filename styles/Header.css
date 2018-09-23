@@ -40,6 +40,10 @@
   z-index: 3;
 }
 
+.logo {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
 
 @media(min-width: 640px) {
   .photo {
@@ -59,6 +63,7 @@
   
   .logo {
     margin-left: -4.6rem;
+    width: 410px;
   }
 
   .masthead-cover {
@@ -98,6 +103,7 @@
   }
 
   .logo {
+    width: 500px;
     margin-left: -5.6rem;
   }
 
@@ -114,11 +120,4 @@
   .meta {
     margin-left: auto;
   }
-}
-
-.logo {
-  width: 100%;
-  min-width: 250px;
-  max-width: 500px;
-  margin-bottom: 1.5rem;
 }
