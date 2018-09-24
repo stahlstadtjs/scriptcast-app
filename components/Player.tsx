@@ -4,7 +4,6 @@ import React from 'react';
 import '../styles/Player.css';
 
 import { ProgressBar, ProgressState } from './Progressbar';
-import { Button } from './Button';
 
 import { MdPlayArrow, MdPause } from "react-icons/md";
 
