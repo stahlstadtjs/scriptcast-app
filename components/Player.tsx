@@ -38,11 +38,11 @@ class Player extends Component<PlayerProps, PlayerState> {
     let seconds = 0;
     if(time > 3600) {
       hours = `${("00" + Math.floor(time / 60)).slice(-2)}:`;
-      time = time / 60;
+      time = time - (time / 60);
     }
     if(time > 60) {
       minutes = Math.floor(time / 60);
-      time = time / 60;
+      time = time - (time / 60);
     }
     seconds = Math.floor(time);
     return `${hours}${("00" + minutes).slice(-2)}:${("00" + seconds).slice(-2)}`;
@@ -100,7 +100,9 @@ class Player extends Component<PlayerProps, PlayerState> {
           onPause={pause}
           onPlay={play}
           autoPlay={true} src={url}></audio>
-        <button aria-label={buttonProps.label} className="btn realestate" onClick={buttonProps.method}>{buttonProps.icon}</button>
+        <button aria-label={buttonProps.label}
+          className="btn realestate"
+          onClick={buttonProps.method}>{buttonProps.icon}</button>
         <div className="player-meta">
           {aria.text} 
         </div>
