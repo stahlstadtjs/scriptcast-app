@@ -20,7 +20,7 @@ export default class MyApp extends App {
         url,
         type
       }
-    });
+    })
   }
 
   constructor(props) {
@@ -30,7 +30,7 @@ export default class MyApp extends App {
         url: undefined,
         type: undefined,
       },
-      setAudio: (url, type) => this.setAudio(url, type)
+      setAudio: this.setAudio.bind(this)
     }
   }
 

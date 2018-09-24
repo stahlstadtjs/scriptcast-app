@@ -9,5 +9,5 @@ export const Button:SFC<{
   if (url) {
     return <a onClick={onClick} className="btn" href={url}>{children}</a>
   }
-  return <button onClick={onClick} className="btn">{children}</button>
+  return <button onClick={onClick} role="button" className="btn">{children}</button>
 }

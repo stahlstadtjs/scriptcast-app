@@ -13,6 +13,12 @@
   transition: all 0.3s ease;
 }
 
+.realestate {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
 .btn:hover {
   background-color: #f7c41e;
   border-color: #f7c41e;
