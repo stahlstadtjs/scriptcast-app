@@ -11,7 +11,7 @@ export const Header:SFC<{ episode?: PodcastItem, latest?: boolean }> = ({ episod
   let more;
   let Headline = 'h1';
   if (latest) {
-    more = <PostLink classes="btn secondary" title="More" id={getID(episode)}/>;
+    more = <PostLink classes="btn secondary" title="Get to the shownotes of our latest episode" id={getID(episode)}>More</PostLink>;
     Headline = 'h2';
   }
   return <Context.Consumer>
