@@ -1,6 +1,6 @@
 import { SFC } from 'react';
 import { PodcastItem, getID } from '../data/Data';
-import { formatDate, splitTitle } from "../data/Text";
+import { formatDate, splitTitle, urlToHTTPS } from "../data/Text";
 import { PostLink } from "./PostLink";
 import '../styles/Item.css';
 
@@ -12,7 +12,7 @@ export const Item: SFC<{
   const { number, trunkatedTitle } = splitTitle(item.title);
   return <div className="split">
     <div className="image-container">
-      <img src={item["itunes:image"].$.href} alt="Cover image of episode" />
+      <img src={urlToHTTPS(item["itunes:image"].$.href)} alt="Cover image of episode" />
     </div>
     <article>
       <p className="time">

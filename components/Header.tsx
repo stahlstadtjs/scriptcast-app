@@ -9,8 +9,10 @@ import { PostLink } from './PostLink';
 
 export const Header:SFC<{ episode?: PodcastItem, latest?: boolean }> = ({ episode, latest }) => {
   let more;
+  let Headline = 'h1';
   if (latest) {
     more = <PostLink classes="btn secondary" title="More" id={getID(episode)}/>;
+    Headline = 'h2';
   }
   return <Context.Consumer>
     {({ setAudio }) => (
@@ -22,7 +24,7 @@ export const Header:SFC<{ episode?: PodcastItem, latest?: boolean }> = ({ episod
         <div className="meta">
           <img className="logo" src="/static/assets/logo.svg" alt="ScriptCast - A Podcast about JavaScript"/>
           <p>{latest ? 'Latest Episode'.toUpperCase() + ' | ' : '' }{formatDate(episode.pubDate)}</p>
-          <h2>{episode.title}</h2>
+          <Headline>{episode.title}</Headline>
           <Button onClick={(e: MouseEvent) => { 
             e.preventDefault(); 
             setAudio(episode.enclosure.$.url, episode.enclosure.$.type)
