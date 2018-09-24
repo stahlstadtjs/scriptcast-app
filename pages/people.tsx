@@ -1,6 +1,6 @@
 import { Menu } from '../components/Menu';
 import Layout from '../components/Layout';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 export default () => <>
   <Menu />
