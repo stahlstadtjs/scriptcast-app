@@ -102,6 +102,9 @@ class Player extends Component<PlayerProps, PlayerState> {
           onPlay={play}
           autoPlay={true} src={url}></audio>
         <button aria-label={buttonProps.label} className="btn realestate" onClick={buttonProps.method}>{buttonProps.icon}</button>
+        <div className="player-meta">
+          {aria.text}
+        </div>
         <ProgressBar aria={aria} audio={this.audioRef} />
       </div>;
     }
