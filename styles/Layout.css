@@ -5,6 +5,7 @@ body {
   font-size: 1rem;
   line-height: 1.5em;
   position: relative;
+  min-height: 100vh;
 }
 
 *, *:after, *:before {
