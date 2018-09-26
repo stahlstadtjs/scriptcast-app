@@ -1,9 +1,7 @@
 import React, { Component, MouseEvent } from 'react';
 import { fetchEntry, PodcastItem } from '../data/Data';
 import Layout from '../components/Layout';
-import Context from '../data/Context';
 import Head from 'next/head';
-import { urlToHTTPS } from '../data/Text';
 import { Menu } from '../components/Menu';
 import { Header } from '../components/Header';
 
