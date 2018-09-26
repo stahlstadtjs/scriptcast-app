@@ -27,7 +27,7 @@ export const Header:SFC<{ episode?: PodcastItem, latest?: boolean }> = ({ episod
           <Headline>{episode.title}</Headline>
           <Button onClick={(e: MouseEvent) => { 
             e.preventDefault(); 
-            setAudio(episode.enclosure.$.url, episode.enclosure.$.type)
+            setAudio(episode)
           }} url={episode.enclosure.$.url}>Play</Button>
           { more }
         </div>

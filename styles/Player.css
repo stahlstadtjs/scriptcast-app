@@ -11,4 +11,33 @@
 .player-meta {
   color: #ffffff;
   font-size: 0.75rem;
+  overflow: hidden;
+  width: 150px;
+  position: relative;
+}
+
+.no-break {
+  white-space: nowrap;
+  animation: marquee 25000ms alternate infinite linear;
+  animation-delay: 10000ms;
+  left: 0;
+  position: absolute;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+
+  25% {
+    left: 0;
+  }
+
+  75% {
+    left: -160px;
+  }
+
+  100% {
+    left: -160px;
+  }
 }

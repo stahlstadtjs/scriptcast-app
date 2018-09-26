@@ -1,19 +1,14 @@
 import React from 'react';
+import { PodcastItem } from './Data';
 
 export type ContextState = {
-  data: {
-    url: string,
-    type: string
-  },
-  setAudio: (url, type) => void
+  data: PodcastItem,
+  setAudio: (item: PodcastItem) => void
 }
 
 const AppContext = React.createContext({
-  data: {
-    url: undefined,
-    type: undefined
-  },
-  setAudio: (url, type) => {}
+  data: undefined,
+  setAudio: (item: PodcastItem) => {}
 });
 
 export default AppContext;

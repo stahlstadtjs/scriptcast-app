@@ -6,6 +6,7 @@ import '../styles/Player.css';
 import { ProgressBar, ProgressState } from './Progressbar';
 
 import { MdPlayArrow, MdPause } from "react-icons/md";
+import { PodcastItem } from 'data/Data';
 
 
 type PlayerState = {
@@ -13,7 +14,7 @@ type PlayerState = {
   aria: ProgressState
 };
 
-type PlayerProps = { type?: string, url: string };
+type PlayerProps = { item: PodcastItem };
 
 class Player extends Component<PlayerProps, PlayerState> {
 
@@ -75,20 +76,21 @@ class Player extends Component<PlayerProps, PlayerState> {
   }
 
   componentDidUpate(prevProps: PlayerProps) {
-    if(prevProps.url !== this.props.url) {
+    if (prevProps.item.enclosure.$.url !== this.props.item.enclosure.$.url) {
       this.play();
     }
   }
 
   render() {
-    const { url } = this.props;
     const { aria } = this.state;
     const updateAudio = this.updateAudio.bind(this);
     const play = this.play.bind(this);
     const pause = this.pause.bind(this);
 
-    if (url) {
-      const buttonProps = this.state.playing ? 
+    if (this.props && this.props.item && this.props.item.enclosure) {
+      const { url } = this.props.item.enclosure.$;
+      const { item } = this.props;
+      const buttonProps = this.state.playing ?
         { label: 'Pause', icon: <MdPause />, method: pause } : 
         { label: 'Play', icon: <MdPlayArrow />, method: play };
        
@@ -102,6 +104,8 @@ class Player extends Component<PlayerProps, PlayerState> {
           autoPlay={true} src={url}></audio>
         <button aria-label={buttonProps.label} className="btn realestate" onClick={buttonProps.method}>{buttonProps.icon}</button>
         <div className="player-meta">
+          <span className="no-break">{item.title}</span>
+          <br/>
           {aria.text} 
         </div>
         <ProgressBar aria={aria} audio={this.audioRef} />
