@@ -7,6 +7,12 @@
   position: relative;
 }
 
+@media(max-width: 639px) {
+  .hide-sm.hide-sm {
+    display: none;
+  }
+}
+
 .photo:after {
   position: absolute;
   top: 0; 
@@ -124,4 +130,8 @@
 
 h1 {
   font-size: 1.5em;
+}
+
+.button-line {
+  line-height: 1.3em;
 }
