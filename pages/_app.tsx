@@ -1,10 +1,8 @@
 import App, { Container } from 'next/app'
 import React from 'react';
-import Player from '../components/Player';
-import Context, { ContextState } from '../data/Context';
-import { PodcastItem } from 'data/Data';
+import ContextComponent from '../components/ContextComponent';
 
-export default class MyApp extends App<{}, ContextState> {
+export default class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -15,31 +13,12 @@ export default class MyApp extends App<{}, ContextState> {
     return { pageProps }
   }
 
-  setAudio(item: PodcastItem) {
-    this.setState({
-      data: item
-    })
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {
-        url: undefined,
-        type: undefined,
-      },
-      setAudio: this.setAudio.bind(this)
-    }
-  }
-
   render () {
     const { Component, pageProps } = this.props;
-    const state = this.state as ContextState;
-    return <Context.Provider value={state}>
+    return <ContextComponent>
       <Container>
         <Component {...pageProps} />
-        <Player item={state.data} />
       </Container>
-    </Context.Provider>
+    </ContextComponent>
   }
 }
