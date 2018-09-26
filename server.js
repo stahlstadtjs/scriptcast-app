@@ -16,6 +16,8 @@ app.prepare()
 
     server.get('/api', fetchRSS());
 
+    server.use('/favicon.ico', express.static('./static/icons/favicon.ico'))
+
     server.get('/podcast/:id', (req, res) => {
       const actualPage = '/podcast';
       const queryParams = { id: req.params.id };
