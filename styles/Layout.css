@@ -16,6 +16,7 @@ main {
   margin: 1rem auto;
   max-width: 1000px;
   padding: 2rem;
+  min-height: calc(100vh - 400px);
 }
 
 h1, h2 {
@@ -45,4 +46,19 @@ a:hover {
   .article {
     margin-left: 2rem;
   }
+}
+
+figure {
+  width: calc(100% + 1rem);
+  margin: 0 -1rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figcaption {
+  font-style: italic;
 }

@@ -1,7 +1,10 @@
 import Layout from '../components/Layout';
 import { Menu } from '../components/Menu';
+import About from '../articles/about.mdx';
 
 export default () => <>
   <Menu />
-  <Layout><div>About us</div></Layout>
+  <Layout>
+    <About />
+  </Layout>
 </>;
