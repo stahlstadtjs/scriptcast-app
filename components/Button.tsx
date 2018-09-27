@@ -13,8 +13,8 @@ export const Button:SFC<ButtonType> = (props) => {
   const { url } = props;
   if (url) {
     const { children, onClick, className, ...rest} = (props as JSXAnchorProps);
-    return <a onClick={onClick} className={`btn ${className}`} href={url} {...rest}>{children}</a>
+    return <a onClick={onClick} className={`btn ${className || ''}`} href={url} {...rest}>{children}</a>
   }
   const { children, onClick, className, ...rest} = (props as JSXButtonProps);
-  return <button onClick={onClick} role="button" className={`btn ${className}`} {...rest}>{children}</button>
+  return <button onClick={onClick} role="button" className={`btn ${className || ''}`} {...rest}>{children}</button>
 }
