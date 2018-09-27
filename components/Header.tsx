@@ -14,9 +14,9 @@ export const Header:SFC<{ episode?: PodcastItem, latest?: boolean }> = ({ episod
   if (latest) {
     more = <>
       <PostLink classes="btn secondary" title="Get to the shownotes of our latest episode" id={getID(episode)}>More</PostLink>
-      <a href='https://soundcloud.com/scriptcast' className="btn secondary hide-sm">SoundCloud</a>
-      <a href='https://itunes.apple.com/at/podcast/scriptcast-a-podcast-about-javascript/id1247618721?l=en&mt=2' className="btn secondary hide-sm">iTunes</a>
-      <a href='http://feeds.soundcloud.com/users/soundcloud:users:306408165/sounds.rss' className="btn secondary">RSS</a>
+      <Button url='https://soundcloud.com/scriptcast' className="secondary hide-sm">SoundCloud</Button>
+      <Button url='https://itunes.apple.com/at/podcast/scriptcast-a-podcast-about-javascript/id1247618721?l=en&mt=2' className="secondary hide-sm">iTunes</Button>
+      <Button url='http://feeds.soundcloud.com/users/soundcloud:users:306408165/sounds.rss' className="secondary">RSS</Button>
     </>
     Headline = 'h2';
   }

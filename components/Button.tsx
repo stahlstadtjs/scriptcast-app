@@ -1,13 +1,20 @@
-import { SFC } from 'react';
+import { SFC, DetailedHTMLProps, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 import '../styles/Button.css';
 
-export const Button:SFC<{ 
-  url? : string,
-  onClick?: (e?: any) => any
-}> = ({ url, onClick, children }) => {
+type JSXAnchorProps = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+type JSXButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+
+type ButtonType = {
+  url?: string
+} & (JSXAnchorProps | JSXButtonProps);
+
+export const Button:SFC<ButtonType> = (props) => {
+  const { url } = props;
   if (url) {
-    return <a onClick={onClick} className="btn" href={url}>{children}</a>
+    const { children, onClick, className, ...rest} = (props as JSXAnchorProps);
+    return <a onClick={onClick} className={`btn ${className}`} href={url} {...rest}>{children}</a>
   }
-  return <button onClick={onClick} role="button" className="btn">{children}</button>
+  const { children, onClick, className, ...rest} = (props as JSXButtonProps);
+  return <button onClick={onClick} role="button" className={`btn ${className}`} {...rest}>{children}</button>
 }
