@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "node server.js",
     "prod": "NODE_ENV=production node server.js",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
