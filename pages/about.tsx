@@ -1,10 +1,8 @@
-import Layout from '../components/Layout';
-import { Menu } from '../components/Menu';
+import ArticleLayout from '../components/ArticleLayout';
 import About from '../articles/about.mdx';
 
 export default () => <>
-  <Menu />
-  <Layout>
+  <ArticleLayout>
     <About />
-  </Layout>
+  </ArticleLayout>
 </>;

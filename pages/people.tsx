@@ -1,13 +1,11 @@
-import { Menu } from '../components/Menu';
-import Layout from '../components/Layout';
+import ArticleLayout from '../components/ArticleLayout';
 import Head from 'next/head';
 
 export default () => <>
-  <Menu />
   <Head>
     <title>The people behind ScriptCast</title>
   </Head>
-  <Layout>
+  <ArticleLayout>
     <h1>Coming soon...</h1>
-  </Layout>
+  </ArticleLayout>
 </>;
