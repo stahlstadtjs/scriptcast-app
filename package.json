@@ -5,7 +5,7 @@
     "dev": "node server.js",
     "prod": "NODE_ENV=production node server.js",
     "build": "next build",
-    "start": "next build && NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.15.4",
