@@ -5,8 +5,9 @@ const next = require('next');
 const compression = require('compression');
 
 const dev = process.env.NODE_ENV !== 'production';
+const defaultPort = dev ? 3000 : 443;
 const app = next({ dev });
-const port = dev ? 3000 : 443;
+const port = process.env.PORT || defaultPort;
 const handle = app.getRequestHandler();
 
 app.prepare()
