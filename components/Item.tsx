@@ -20,7 +20,9 @@ export const Item: SFC<{
       </p>
       <h2><PostLink id={id}>{trunkatedTitle}</PostLink></h2>
       <p>
-      <PostLink classes="btn" title={`Shownotes of episode ${number}`} id={getID(item)}>More</PostLink>
+      <PostLink classes="btn" title={`Shownotes of episode ${number}`} id={getID(item)}>
+        More<span className="visually-hidden">on episode {number}</span>
+      </PostLink>
       </p>
     </article>
   </div>

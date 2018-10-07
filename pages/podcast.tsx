@@ -1,5 +1,6 @@
 import React, { Component, MouseEvent } from 'react';
 import { fetchEntry, PodcastItem } from '../data/Data';
+import { splitTitle } from "../data/Text";
 import Layout from '../components/Layout';
 import Head from 'next/head';
 import { Menu } from '../components/Menu';
@@ -19,9 +20,12 @@ export default class Podcast extends Component<{ item: PodcastItem }> {
 
   render() {
     const { item } = this.props;
+    const { number } = splitTitle(item.title);
+    const description = `Episode ${number} of ScriptCast.`
     return <>
       <Head>
         <title>ScriptCast {item.title}</title>
+        <meta name="description" content={description}/>
       </Head>
       <Menu />    
       <Header episode={item}/>    

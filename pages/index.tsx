@@ -26,6 +26,7 @@ export default class Index extends Component<{ channel: PodcastChannel }> {
       <Layout>
         <Head>
           <title>ScriptCast - A podcast about JavaScript</title>
+          <meta name="description" content="A podcast about JavaScript and all its people. Interviews with creators, talks and more..."/>
         </Head>
         { this.getItems() }
       </Layout>
