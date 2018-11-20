@@ -40,6 +40,12 @@ export type PodcastItem = {
 
 const mappedEntries = new Map<string, PodcastItem>();
 
+const linkifyOptions = {
+  attributes: {
+    rel: 'nofollow'
+  }
+};
+
 let results: RSS = undefined;
 
 const parsePromise = (xml) => new Promise<RSS>((resolve, reject) => {
@@ -53,7 +59,7 @@ export const getID = (item: PodcastItem) => item.link.split('/').pop().split('-'
 
 const createMap = (results: RSS, map: Map<string, PodcastItem>) => {
   results.rss.channel.item.forEach(el => {
-    el.HTMLdescription = linkifyHtml(convertBreaks(el.description));
+    el.HTMLdescription = linkifyHtml(convertBreaks(el.description), linkifyOptions);
     map.set(getID(el), el);
   })
 }
