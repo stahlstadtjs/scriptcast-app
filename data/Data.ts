@@ -42,7 +42,7 @@ const mappedEntries = new Map<string, PodcastItem>();
 
 const linkifyOptions = {
   attributes: {
-    rel: 'nofollow'
+    rel: 'noopener'
   }
 };
 
