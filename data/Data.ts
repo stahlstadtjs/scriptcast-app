@@ -1,6 +1,7 @@
 import { parseString } from 'xml2js';
 import fetch from 'isomorphic-unfetch';
 import { convertBreaks } from './Util';
+import linkifyHtml from 'linkifyjs/html';
 
 export type RSS = {
   rss: {
@@ -52,7 +53,7 @@ export const getID = (item: PodcastItem) => item.link.split('/').pop().split('-'
 
 const createMap = (results: RSS, map: Map<string, PodcastItem>) => {
   results.rss.channel.item.forEach(el => {
-    el.HTMLdescription = convertBreaks(el.description);
+    el.HTMLdescription = linkifyHtml(convertBreaks(el.description));
     map.set(getID(el), el);
   })
 }
